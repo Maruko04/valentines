@@ -70,13 +70,22 @@
         button:hover {
             background-color: #e63950;
         }
+        .watermark {
+            position: absolute;
+            bottom: 10px; /* Adjust as needed */
+            right: 10px; /* Adjust as needed */
+            color: rgba(0, 0, 0, 0.5); /* Light gray color for watermark */
+            font-size: 24px; /* Adjust font size */
+            font-weight: bold;
+            pointer-events: none; /* Prevent interaction with the watermark */
+        }
     </style>
 </head>
 <body>
     <audio id="background-audio" loop>
         <source src="2.mp3" type="audio/mpeg">
     </audio>
-
+    <div class="watermark">-Ronie Nilo</div>
     <button class="overlay">Click me 💕</button>
 
     <div class="container">
