@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            background: 
+                url('1.png') center center,
+                url('https://www.transparenttextures.com/patterns/flowers.png'), 
+                #ffd1dc;
+            background-size: contain, auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative; /* Allows for the absolute positioning of the container */
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            display: none; /* Hidden initially */
+        }
+        .overlay {
+            position: fixed; /* Use fixed positioning to cover the entire viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0); /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10; /* Higher z-index to ensure it covers everything */
+            color: #ebebeb;
+            font-weight: bold;
+            border: none; /* No border for button */
+        }
+
+        /* The hover effect is optional; set the color as desired */
+        .overlay:hover {
+            background: rgba(0, 0, 0); /* Optional hover effect */
+        }
+
+        h1 {
+            color: #ff4d6d;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #e63950;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-audio" loop>
+        <source src="2.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="overlay">Click me 💕</button>
+
+    <div class="container">
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="buttons">
+            <button onclick="window.location.href='2.html'">Yes</button>
+            <button onclick="window.location.href='1.html'">No</button>
+        </div>
+        </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const overlay = document.querySelector(".overlay");
+            const container = document.querySelector(".container");
+            const audio = document.getElementById("background-audio");
+
+            overlay.addEventListener("click", function() {
+                container.style.display = "block"; // Show content
+                audio.play().catch(error => console.error("Autoplay blocked:", error)); // Play the audio
+                overlay.style.display = "none"; // Hide overlay
+            });
+        });
+    </script>
+</body>
+</html>
